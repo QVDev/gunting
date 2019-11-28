@@ -1,13 +1,17 @@
 var localCanvas = document.getElementById('local_canvas');
 var ctx = localCanvas.getContext('2d');
 var localVideo = document.getElementById('local_video');
+var webp;
 
 localVideo.addEventListener('play', function () {
     var $this = this;
     (function loop() {
         if (!$this.paused && !$this.ended) {
             ctx.drawImage($this, 0, 0);
-            setTimeout(loop, 1000 / 10); // drawing at 30fps
+            webp = localCanvas.toDataURL("image/webp", 0.1);
+            writeImageToGun(webp);
+            updateCandidatesAppearance();
+            setTimeout(loop, 1000 / 30); // drawing at 30fps
         }
     })();
 }, 0);
