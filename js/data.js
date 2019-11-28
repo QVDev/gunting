@@ -50,17 +50,13 @@ function updateCandidatesAppearance() {
 }
 
 function check(data) {
-    console.log(JSON.stringify(data.timestamp));
-
     let currentTime = new Date().getTime();
     var difference = (currentTime - data.timestamp) / 1000;
-    console.log("TIME::" + difference)  
+
     if (difference > 5) {
-        console.log("remove::" + data.name);
         removeFromGun(data.name);
         return false;
     } else {
-        console.log("keep::" + data.name);
         return true;
     }
 }
