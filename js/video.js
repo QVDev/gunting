@@ -26,4 +26,9 @@ var handleSuccess = function (stream) {
     localCanvas.height = height;
 };
 
-navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(handleSuccess)
+navigator.mediaDevices.getUserMedia({
+    audio: false, video: {
+        width: { min: 200, ideal: 200, max: 200 },
+        height: { min: 200, ideal: 200, max: 200 }
+    }
+}).then(handleSuccess)
