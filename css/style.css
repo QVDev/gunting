@@ -1,3 +1,11 @@
+html {
+    background-color: transparent;
+  }
+  
+  body {
+    background-color: #4a4a4a;
+  }  
+
 .local_video {
     width: 100%;
     height: 100%;

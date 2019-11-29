@@ -1,3 +1,13 @@
+function getStreamId() {
+    let streamId = sessionStorage.getItem('STREAM_ID');
+
+    if(streamId == undefined) {
+        streamId = Date.now();
+        sessionStorage.setItem('STREAM_ID', streamId);
+    }
+    return streamId;
+}
+
 function incommingStream(data) {
     var remote = document.getElementById(data.name);
     if (remote != undefined) {
@@ -26,8 +36,6 @@ function writeImageToGun(webPData) {
     gunDB.get(DB_RECORD).set(user);
 }
 
-startListeningForIncomingCandidates();
-
 function startListeningForIncomingCandidates() {
     gunDB.get(DB_RECORD).map().once(function (stream, id) {
         gunDB.get(id).on(function (data) {
@@ -43,7 +51,7 @@ function updateCandidatesAppearance() {
     var remoteContainer = document.getElementById("remote_container")
     for (var i = 0; i < remoteContainer.children.length; i++) {
         var remote = remoteContainer.children[i];
-        if(!check({ name: remote.id, timestamp: remote.lastUpdate })) {
+        if (!check({ name: remote.id, timestamp: remote.lastUpdate })) {
             remote.remove()
         }
     }
