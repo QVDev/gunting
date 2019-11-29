@@ -30,6 +30,7 @@ function initApp() {
         DB_RECORD = window.location.hash.replace('#', '');
         startListeningForIncomingCandidates();
         startLocalVideo();
+        audioTransmitter = audioTransmitter();
     }
 
     var roomInput = document.getElementById("room_id");
@@ -52,9 +53,12 @@ function initApp() {
             DB_RECORD = window.location.hash.replace('#', '');
             startLocalVideo();
             startListeningForIncomingCandidates();
+            audioTransmitter = audioTransmitter();
         }
     }
 
     window.onhashchange = locationHashChanged;
+
+    audioBridge.init();
 }
 
