@@ -42,6 +42,7 @@ var audioTransmitter = (function () {
   function constructData(event, data) {
     dataToSend = {}
     dataToSend.user = gunDB._.opt.pid
+    dataToSend.streamID = STREAM_ID;
     dataToSend.event = event
     dataToSend.timestamp = new Date().getTime();
 

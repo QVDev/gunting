@@ -2,7 +2,7 @@ const SECOND = 1000;
 const TARGET_ENCODING = 16;
 const DEFAULT_SAMPLE_RATE = 44100;
 const DEFAULT_CHANNELS = 1;
-const DEFAULT_DURATION = 0.1;
+const DEFAULT_DURATION = 0.2;
 const DEFAULT_STOP_DELAY = 1.8;
 
 var Writable = require('web-audio-stream/writable');
