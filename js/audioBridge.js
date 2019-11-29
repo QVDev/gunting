@@ -6,8 +6,8 @@ var audioBridge = (function () {
   function init() {
 
     gunDB.get('audio').map().once(function (stream, id) {
-      gunDB.get(id).on(function (data) {
-        if(data.streamID == undefined) {
+      gunDB.get(id).on(function (data, id) {
+        if(!id.includes("audio_")) {
           return;
         }
         if (initial) {
